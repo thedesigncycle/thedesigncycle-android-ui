@@ -1,9 +1,12 @@
 ## CircleButton
 
 **Dependency**
+
 Add this in your module's `build.gradle` file
 
-    `compile 'com.thedesigncycle.ui:views:0.1'
+```
+compile 'com.thedesigncycle.ui:views:0.1'
+```
 
 
 **Usage**
