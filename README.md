@@ -3,21 +3,22 @@
 **Dependency**
 Add this in your module's `build.gradle` file
 
-    compile 'com.thedesigncycle.ui:views:0.1'
+    `compile 'com.thedesigncycle.ui:views:0.1'
 
 
 **Usage**
 
 **In layout**
 
-    <com.thedesigncycle.ui.CircleButton
+``` xml
+<com.thedesigncycle.ui.CircleButton
 	  xmlns:app="http://schemas.android.com/apk/res-auto"
       android:layout_width="100dp"
       android:layout_height="100dp"
       app:buttonColor="#ff0000"
       app:icon="@drawable/ic_list"
-      />
-
+  />
+```
 
 
 |Attribute|  Description| Example |
@@ -31,15 +32,28 @@ Add this in your module's `build.gradle` file
 **At runtime**
 
 Imports
-`import com.thedesigncycle.ui.CircleButton;`
+
+```java
+import com.thedesigncycle.ui.CircleButton;
+```
+
 
 Create at runtime
-`CircleButton myCircleButton = new CircleButton();`
+
+```java
+CircleButton myCircleButton = new CircleButton();
+```
+
 
 or fetch from layout
-`CircleButton myCircleButton = (CircleButton) findViewById(R.id.my_circle_button);`
+
+```java
+CircleButton myCircleButton = (CircleButton) findViewById(R.id.my_circle_button);
+```
+
 
 **Methods**
+
 |Method| Description  |
 |--|--|
 | `setButtonColor(int Color)` | Set color of the button |
