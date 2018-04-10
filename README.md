@@ -52,6 +52,14 @@ CircleButton myCircleButton = (CircleButton) findViewById(R.id.my_circle_button)
 ```
 
 
+Customize
+```java
+myCircleButton.setColor("#FF0000");
+
+myCircleButton.setIcon(getResources().getDrawable(R.drawable.ic_list);
+```
+
+
 **Methods**
 
 |Method| Description  |
