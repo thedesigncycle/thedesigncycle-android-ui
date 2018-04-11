@@ -13,11 +13,14 @@ import android.view.MotionEvent;
 
 public class CircleButton extends AppCompatButton {
 
-    private float baseRadius, currentRadius, scale;
+    private float RADIUS, SHADOW_BLUR_RADIUS, SHADOW_X, SHADOW_Y;
+
+    private float currentRadius, currentScale,
+            currentShadowBlurRadius, currentShadowX,
+            currentShadowY;
+
     private int buttonColor, shadowColor;
 
-    private float shadowBlurRadius, shadowX, shadowY;
-    private float shadowBlurRadiusDynamic, shadowXDynamic, shadowYDynamic;
     private Paint buttonPaint;
 
     private Drawable icon;
@@ -33,7 +36,7 @@ public class CircleButton extends AppCompatButton {
                 0, 0);
 
         try {
-            buttonColor = a.getColor(R.styleable.CircleButton_buttonColor, Color.BLACK);
+            buttonColor = a.getColor(R.styleable.CircleButton_buttonColor, Color.RED);
 
             icon = a.getDrawable(R.styleable.CircleButton_icon);
             shadowColor = Color.argb(77, Color.red(buttonColor), Color.green(buttonColor), Color.blue(buttonColor));
@@ -62,13 +65,13 @@ public class CircleButton extends AppCompatButton {
 
     private void init() {
 
-        shadowBlurRadius = 0.1f;
-        shadowX = 0;
-        shadowY = 0.06f;
-        scale = 1.0f;
-        shadowBlurRadiusDynamic = shadowBlurRadius;
-        shadowXDynamic = shadowX;
-        shadowYDynamic = shadowY;
+        SHADOW_BLUR_RADIUS = 0.1f;
+        SHADOW_X = 0;
+        SHADOW_Y = 0.06f;
+        currentScale = 1.0f;
+        currentShadowBlurRadius = SHADOW_BLUR_RADIUS;
+        currentShadowX = SHADOW_X;
+        currentShadowY = SHADOW_Y;
 
         buttonPressAnimator = ValueAnimator.ofFloat(1, 0.9f);
         buttonPressAnimator.setDuration(100);
@@ -77,12 +80,12 @@ public class CircleButton extends AppCompatButton {
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float animatedValue = (float) valueAnimator.getAnimatedValue();
                 float animatedValue1to0 = (animatedValue - 0.9f) * 10;
-                currentRadius = baseRadius * animatedValue;
-                shadowYDynamic = shadowY * animatedValue1to0;
-                shadowXDynamic = shadowX * animatedValue1to0;
-                shadowBlurRadiusDynamic = shadowBlurRadius * animatedValue1to0;
+                currentRadius = RADIUS * animatedValue;
+                currentShadowY = SHADOW_Y * animatedValue1to0;
+                currentShadowX = SHADOW_X * animatedValue1to0;
+                currentShadowBlurRadius = SHADOW_BLUR_RADIUS * animatedValue1to0;
                 computeShadow(buttonPaint);
-                scale = animatedValue;
+                currentScale = animatedValue;
                 invalidate();
             }
         });
@@ -95,12 +98,12 @@ public class CircleButton extends AppCompatButton {
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float animatedValue = (float) valueAnimator.getAnimatedValue();
                 float animatedValue0to1 = (animatedValue - 0.9f) * 10;
-                currentRadius = baseRadius * animatedValue;
-                shadowYDynamic = shadowY * animatedValue0to1;
-                shadowXDynamic = shadowX * animatedValue0to1;
-                shadowBlurRadiusDynamic = shadowBlurRadius * animatedValue0to1;
+                currentRadius = RADIUS * animatedValue;
+                currentShadowY = SHADOW_Y * animatedValue0to1;
+                currentShadowX = SHADOW_X * animatedValue0to1;
+                currentShadowBlurRadius = SHADOW_BLUR_RADIUS * animatedValue0to1;
                 computeShadow(buttonPaint);
-                scale = animatedValue;
+                currentScale = animatedValue;
                 invalidate();
             }
 
@@ -117,14 +120,14 @@ public class CircleButton extends AppCompatButton {
         int width = canvas.getWidth();
         int height = canvas.getHeight();
 
-        if (baseRadius == 0) {
+        if (RADIUS == 0) {
             initValues(Math.min(width, height));
         }
 
         canvas.drawCircle(width / 2, height / 2, currentRadius, buttonPaint);
 
         if (icon != null) {
-            float margin = 0.3f * (1 / scale);
+            float margin = 0.3f * (1 / currentScale);
             int diameter = Math.min(width, height);
             int deltaX = width > height ? (width - height) / 2 : 0;
             int deltaY = height > width ? (height - width) / 2 : 0;
@@ -139,8 +142,8 @@ public class CircleButton extends AppCompatButton {
 
 
     private void initValues(float width) {
-        baseRadius = (width / 2) * (1f - Math.max(shadowX * 2, shadowY * 2));
-        currentRadius = baseRadius;
+        RADIUS = (width / 2) * (1f - Math.max(SHADOW_X * 2, SHADOW_Y * 2));
+        currentRadius = RADIUS;
         buttonPaint = new Paint();
         buttonPaint.setAntiAlias(true);
         buttonPaint.setStyle(Paint.Style.FILL);
@@ -151,17 +154,17 @@ public class CircleButton extends AppCompatButton {
 
 
     private void computeShadow(Paint paint) {
-        paint.setShadowLayer(currentRadius * shadowBlurRadiusDynamic,
-                currentRadius * shadowXDynamic,
-                currentRadius * shadowYDynamic, shadowColor);
+        paint.setShadowLayer(currentRadius * currentShadowBlurRadius,
+                currentRadius * currentShadowX,
+                currentRadius * currentShadowY, shadowColor);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 buttonPressAnimator.start();
+
                 break;
 
             case MotionEvent.ACTION_UP:

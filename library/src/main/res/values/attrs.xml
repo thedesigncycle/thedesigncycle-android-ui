@@ -4,4 +4,13 @@
         <attr name="icon" format="reference" />
         <attr name="buttonColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="CircleButtonToggle">
+        <attr name="iconUnchecked" format="reference" />
+        <attr name="buttonColorUnchecked" format="color" />
+        <attr name="iconChecked" format="reference" />
+        <attr name="buttonColorChecked" format="color" />
+    </declare-styleable>
+
+
 </resources>
