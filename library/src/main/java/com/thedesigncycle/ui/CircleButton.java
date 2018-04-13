@@ -7,11 +7,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.widget.Button;
 
-public class CircleButton extends AppCompatButton {
+public class CircleButton extends Button {
 
     private float RADIUS, SHADOW_BLUR_RADIUS, SHADOW_X, SHADOW_Y;
 
@@ -177,8 +177,12 @@ public class CircleButton extends AppCompatButton {
 
     @Override
     public void setBackground(Drawable background) {
-
+        //No Background
     }
 
-
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        initValues(Math.min(w, h));
+    }
 }

@@ -3,7 +3,7 @@
 
 
 ```java
-compile 'com.thedesigncycle.ui:views:0.2.1'
+compile 'com.thedesigncycle.ui:views:0.2.3'
 ```
 
 &nbsp;

@@ -231,7 +231,12 @@ public class CircleToggleButton extends ToggleButton {
 
     @Override
     public void setBackground(Drawable background) {
-
+        //No Background
     }
 
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        initValues(Math.min(w, h));
+    }
 }
