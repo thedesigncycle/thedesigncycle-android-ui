@@ -13,4 +13,25 @@
     </declare-styleable>
 
 
+    <declare-styleable name="RippleView">
+        <attr name="smallCircleScale" format="float" />
+        <attr name="rippleCount" format="integer" />
+        <attr name="rippleDuration" format="integer" />
+        <attr name="colorMode" format="boolean">
+            <flag name="solid" value="0" />
+            <flag name="gradient" value="1" />
+        </attr>
+        <attr name="gradientColor1" format="color" />
+        <attr name="gradientColor2" format="color" />
+        <attr name="solidColor" format="color" />
+        <attr name="gravity">
+            <flag name="bottom" value="80" />
+            <flag name="center" value="17" />
+            <flag name="left" value="3" />
+            <flag name="right" value="5" />
+            <flag name="top" value="48" />
+        </attr>
+    </declare-styleable>
+
+
 </resources>

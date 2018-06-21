@@ -17,8 +17,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(":library")
-    //implementation 'com.thedesigncycle.ui:views:0.2.1'
+    //implementation project(":library")
+    api 'com.thedesigncycle.ui:views:0.3.1'
     implementation 'com.android.support:appcompat-v7:27.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 }
