@@ -11,7 +11,7 @@ compile 'com.thedesigncycle.ui:views:0.3.1'
 &nbsp;
 ## CircleButton
 
-![](https://i.imgur.com/4toNvty.gif | height = 150)
+![CircleButton](https://i.imgur.com/4toNvty.gif)
 
 
 **XML**
@@ -76,7 +76,7 @@ myCircleButton.setIcon(getResources().getDrawable(R.drawable.ic_list));
 
 ## CircleToggleButton
 
-![](https://i.imgur.com/ky4JCYN.gif | height = 150)
+![CircleToggleButton](https://i.imgur.com/ky4JCYN.gif)
 
 **XML**
 ```xml
@@ -137,11 +137,11 @@ Method | Description  |
 
 &nbsp;
 
-##RippleView
+## RippleView
 
-![](https://i.imgur.com/gZT3Rb3.gif | height=150)
+![RippleView](https://i.imgur.com/gZT3Rb3.gif)
 
-###XML
+**XML**
 
 ```xml
 
@@ -174,7 +174,7 @@ Attribute | Description | Example | Default
 
 &nbsp;
 
-###Java
+**Java**
 
 Create at runtime
 ```java
@@ -188,7 +188,7 @@ RippleView rippleView = (RippleView) findViewById(R.id.my_ripple_view);
 
 &nbsp;
 
-**Customize**
+Customize
 
 
 Anchor to an edge
