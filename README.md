@@ -29,10 +29,10 @@ compile 'com.thedesigncycle.ui:views:0.3.1'
 
 
 
-Attribute |  Description | Example |
----------|----------|-------|
-      `buttonColor`   | Color of the button |       `#ff0000` or `@color/myButtonColor`
- `icon`| Icon resource| `@drawable/ic_call`
+ Attribute   |  Description        | Example
+-------------|---------------------|-------
+`buttonColor`| Color of the button | `#ff0000` or `@color/myButtonColor`
+`icon`       | Icon resource       | `@drawable/ic_call`
 
 &nbsp;
 
@@ -63,10 +63,11 @@ myCircleButton.setIcon(getResources().getDrawable(R.drawable.ic_list));
 
 **Methods**
 
- Method | Description  |
- -------|----------|
-  `setButtonColor(int Color)` | Set color of the button |
- `setIcon(Drawable icon)` | Set icon drawable |
+  Method                      | Description
+  --------------------------- | ----------
+  `setButtonColor(int Color)` | Set color of the button
+  `setIcon(Drawable icon)`    | Set icon drawable
+
 &nbsp;
 
 `CircleButton` inherits all public methods from `View`, including `setOnClickListener(...)`
@@ -92,12 +93,12 @@ myCircleButton.setIcon(getResources().getDrawable(R.drawable.ic_list));
 ```
 
 
- Attribute |  Description | Example
----------- |--------------|-----------
-      `buttonColorChecked`   | Color of the button in **checked state** |       `#00ff00` or `@color/myCheckedColor`
-`iconChecked`| Icon resource for **checked state** | `@drawable/ic_check`
-      `buttonColorUnchecked`   | Color of the button in **unchecked state** |       `#ff0000` or `@color/myUncheckedColor`
-`iconUnchecked`| Icon resource for **unchecked state** | `@drawable/ic_close`
+ Attribute | Description | Example
+---------- |-------------|-----------
+`buttonColorChecked`     | Color of the button in **checked state**    | `#00ff00` or `@color/myCheckedColor`
+`iconChecked`            | Icon resource for **checked state**         | `@drawable/ic_check`
+`buttonColorUnchecked`   | Color of the button in **unchecked state**  | `#ff0000` or `@color/myUncheckedColor`
+`iconUnchecked`          | Icon resource for **unchecked state**       | `@drawable/ic_close`
 
 &nbsp;
 
@@ -169,7 +170,7 @@ Attribute | Description | Example | Default
 `rippleCount` | Number of visible ripples at any instance of time | Recommended between `2` and `10` | `5`
 `rippleDuration` | Duration of animation of ripple in milliseconds | Recommended between `100` and `5000` | `1000`
 `smallCircleScale` | The scale of the initial circle | Between `0.1` and `0.9` | `0.5`
-`gravity` | The anchor of the ripples | `center` `left` `top` `right` `bottom` `top|left` `bottom|right` etc. | `center`
+`gravity` | The anchor of the ripples | `center` `left` `top` `right` `bottom` `top\|left` `bottom\|right` etc. | `center`
 
 
 &nbsp;
